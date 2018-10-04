@@ -43,7 +43,7 @@ namespace ResgistroPersonaDetalle.BLL
                persona = contexto.Persona.Find(persona.PersonaID);
                 foreach (var item in persona.Telefonos)
                 {
-                    if (!persona.Telefonos.Exists(d => d.Id = item.Id))
+                    if (!persona.Telefonos.Exists(d => d.Id == item.Id))
                         contexto.Entry(item).State = EntityState.Deleted;
                 }
                 contexto.Entry(persona).State = EntityState.Modified;
@@ -58,6 +58,26 @@ namespace ResgistroPersonaDetalle.BLL
             {
                 contexto.Dispose();
             }
+            return paso;
+
+        }
+
+        public static bool Eliminar(int id)
+        {
+            bool paso = false;
+            Contexto contexto = new Contexto();
+            try
+            {
+                Persona persona = contexto.Persona.Find(id);
+                contexto.Entry(persona).State = EntityState.Deleted;
+                paso = (contexto.SaveChanges() > 0);
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            contexto.Dispose();
             return paso;
 
         }
