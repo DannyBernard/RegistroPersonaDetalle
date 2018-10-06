@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -81,6 +82,44 @@ namespace ResgistroPersonaDetalle.BLL
             return paso;
 
         }
+        public  static Persona Buscar(int id)
+        {
+            Contexto contexto = new Contexto();
+            Persona persona = new Persona();
+            try
+            {
+                persona = contexto.Persona.Find(id);
+                persona.Telefonos.Count();
+
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return persona;
+        }
+    
+        public static List<Persona> GetList(Expression<Func<Persona,bool>>persona)
+        {
+            List<Persona> Lista = new List<Persona>();
+            Contexto contexto = new Contexto();
+            try
+            {
+                Lista = contexto.Persona.Where(persona).ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return Lista;
+        }
+
+
     
 
         }

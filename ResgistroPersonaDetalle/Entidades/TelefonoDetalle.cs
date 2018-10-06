@@ -10,7 +10,7 @@ namespace ResgistroPersonaDetalle.Entidades
         public string TipoTelefono { get; set; }
         public string Telefono { get; set; }
 
-        public TelefonoDetalle()
+        public TelefonoDetalle(int Id, int PersonaID, string Telefono, string TipoTelefono)
         {
             Id = 0;
             PersonaID = 0;
