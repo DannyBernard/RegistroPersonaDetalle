@@ -53,9 +53,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\PersonasBLL.cs" />
+    <Compile Include="BLL\TipoBLL.cs" />
     <Compile Include="DAL\Contexto.cs" />
     <Compile Include="Entidades\Persona.cs" />
     <Compile Include="Entidades\TelefonoDetalle.cs" />
+    <Compile Include="Entidades\TipoDeTelefono.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +71,12 @@
     </Compile>
     <Compile Include="UI\RPersonaDetalle.Designer.cs">
       <DependentUpon>RPersonaDetalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\TipoTelefonoNuevo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\TipoTelefonoNuevo.Designer.cs">
+      <DependentUpon>TipoTelefonoNuevo.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -84,6 +92,9 @@
     </Compile>
     <EmbeddedResource Include="UI\RPersonaDetalle.resx">
       <DependentUpon>RPersonaDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\TipoTelefonoNuevo.resx">
+      <DependentUpon>TipoTelefonoNuevo.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

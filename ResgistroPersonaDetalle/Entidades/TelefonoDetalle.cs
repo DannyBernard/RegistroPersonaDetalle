@@ -17,5 +17,10 @@ namespace ResgistroPersonaDetalle.Entidades
             TipoTelefono = string.Empty;
             Telefono = string.Empty;
         }
+
+      public TelefonoDetalle()
+        {
+
+        }
     }
 }

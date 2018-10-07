@@ -43,6 +43,8 @@
             this.CedulamaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.FNacimientodateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.NuevoTipobutton = new System.Windows.Forms.Button();
+            this.Removebutton = new System.Windows.Forms.Button();
             this.TelefonosdataGridView = new System.Windows.Forms.DataGridView();
             this.Agregarbutton = new System.Windows.Forms.Button();
             this.TipocomboBox = new System.Windows.Forms.ComboBox();
@@ -51,7 +53,6 @@
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.Eliminarbutton = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.Removebutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.IDnumericUpDown)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TelefonosdataGridView)).BeginInit();
@@ -115,7 +116,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(258, 39);
+            this.label7.Location = new System.Drawing.Point(218, 39);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(36, 17);
             this.label7.TabIndex = 6;
@@ -170,6 +171,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.NuevoTipobutton);
             this.groupBox1.Controls.Add(this.Removebutton);
             this.groupBox1.Controls.Add(this.TelefonosdataGridView);
             this.groupBox1.Controls.Add(this.Agregarbutton);
@@ -184,6 +186,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Agregar Telefono";
             // 
+            // NuevoTipobutton
+            // 
+            this.NuevoTipobutton.Location = new System.Drawing.Point(388, 36);
+            this.NuevoTipobutton.Name = "NuevoTipobutton";
+            this.NuevoTipobutton.Size = new System.Drawing.Size(55, 23);
+            this.NuevoTipobutton.TabIndex = 12;
+            this.NuevoTipobutton.Text = "new";
+            this.NuevoTipobutton.UseVisualStyleBackColor = true;
+            this.NuevoTipobutton.Click += new System.EventHandler(this.NuevoTipobutton_Click);
+            // 
+            // Removebutton
+            // 
+            this.Removebutton.Location = new System.Drawing.Point(428, 219);
+            this.Removebutton.Name = "Removebutton";
+            this.Removebutton.Size = new System.Drawing.Size(75, 33);
+            this.Removebutton.TabIndex = 11;
+            this.Removebutton.Text = "Remove";
+            this.Removebutton.UseVisualStyleBackColor = true;
+            this.Removebutton.Click += new System.EventHandler(this.Removebutton_Click);
+            // 
             // TelefonosdataGridView
             // 
             this.TelefonosdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -195,7 +217,7 @@
             // 
             // Agregarbutton
             // 
-            this.Agregarbutton.Location = new System.Drawing.Point(449, 33);
+            this.Agregarbutton.Location = new System.Drawing.Point(464, 36);
             this.Agregarbutton.Name = "Agregarbutton";
             this.Agregarbutton.Size = new System.Drawing.Size(75, 23);
             this.Agregarbutton.TabIndex = 9;
@@ -206,10 +228,11 @@
             // TipocomboBox
             // 
             this.TipocomboBox.FormattingEnabled = true;
-            this.TipocomboBox.Location = new System.Drawing.Point(311, 34);
+            this.TipocomboBox.Location = new System.Drawing.Point(260, 36);
             this.TipocomboBox.Name = "TipocomboBox";
             this.TipocomboBox.Size = new System.Drawing.Size(121, 24);
             this.TipocomboBox.TabIndex = 8;
+            this.TipocomboBox.SelectedIndexChanged += new System.EventHandler(this.TipocomboBox_SelectedIndexChanged);
             // 
             // TelefonomaskedTextBox
             // 
@@ -252,16 +275,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // Removebutton
-            // 
-            this.Removebutton.Location = new System.Drawing.Point(428, 219);
-            this.Removebutton.Name = "Removebutton";
-            this.Removebutton.Size = new System.Drawing.Size(75, 33);
-            this.Removebutton.TabIndex = 11;
-            this.Removebutton.Text = "Remove";
-            this.Removebutton.UseVisualStyleBackColor = true;
-            this.Removebutton.Click += new System.EventHandler(this.Removebutton_Click);
             // 
             // RPersonaDetalle
             // 
@@ -320,5 +333,6 @@
         private System.Windows.Forms.Button Eliminarbutton;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Button Removebutton;
+        private System.Windows.Forms.Button NuevoTipobutton;
     }
 }

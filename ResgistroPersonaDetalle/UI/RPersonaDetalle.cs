@@ -105,12 +105,16 @@ namespace ResgistroPersonaDetalle.UI
 
                 this.detalle.Add(
                     new TelefonoDetalle(
-                         Id : (int) IDnumericUpDown.Value,
+                         Id : 0,
                          PersonaID: (int)IDnumericUpDown.Value,
                         Telefono: TelefonomaskedTextBox.Text,
                         TipoTelefono : TipocomboBox.Text
                         )
                         );
+                CargarGrid();
+                TelefonomaskedTextBox.Focus();
+                TelefonomaskedTextBox.Clear();
+                
             }
         }
 
@@ -191,6 +195,22 @@ namespace ResgistroPersonaDetalle.UI
             {
                 MessageBox.Show("Persona no Encotrada");
             }
+        }
+
+        private void NuevoTipobutton_Click(object sender, EventArgs e)
+        {
+            TipoTelefonoNuevo tipo = new TipoTelefonoNuevo();
+            tipo.ShowDialog();
+
+
+
+
+
+                                        }
+
+        private void TipocomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+         
         }
     }
 }

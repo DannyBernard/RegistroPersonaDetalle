@@ -11,10 +11,14 @@ namespace ResgistroPersonaDetalle.DAL
     class Contexto : DbContext
     {
         public DbSet<Persona> Persona { get; set; }
+        public DbSet<TipoDeTelefono> Tipo { get; set; }
 
         public Contexto() : base("ConStr")
         {
 
         }
+        
+
+        
     }
 }
