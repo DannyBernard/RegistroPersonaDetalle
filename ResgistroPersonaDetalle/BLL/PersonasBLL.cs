@@ -70,15 +70,21 @@ namespace ResgistroPersonaDetalle.BLL
             try
             {
                 Persona persona = contexto.Persona.Find(id);
-                contexto.Entry(persona).State = EntityState.Deleted;
-                paso = (contexto.SaveChanges() > 0);
+                contexto.Persona.Remove(persona);
+
+                if (contexto.SaveChanges() > 0)
+                {
+                    paso = true;
+                }
+                contexto.Dispose();
 
             }
+
             catch (Exception)
             {
                 throw;
             }
-            contexto.Dispose();
+        
             return paso;
 
         }
@@ -89,8 +95,8 @@ namespace ResgistroPersonaDetalle.BLL
             try
             {
                 persona = contexto.Persona.Find(id);
-                persona.Telefonos.Count();
-
+               // persona.Telefonos.Count();
+                contexto.Dispose();
 
             }
             catch (Exception)

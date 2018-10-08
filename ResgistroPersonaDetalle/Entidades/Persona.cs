@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ namespace ResgistroPersonaDetalle.Entidades
 {
    public class Persona
     {
+        [Key]
         public int PersonaID { get; set; }
         public string Nombre { get; set; }
         public string Cedula { get; set; }

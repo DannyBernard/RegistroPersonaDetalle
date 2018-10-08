@@ -37,7 +37,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.IDnumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.Buscarbutton = new System.Windows.Forms.Button();
             this.NombretextBox = new System.Windows.Forms.TextBox();
             this.DirecciontextBox = new System.Windows.Forms.TextBox();
             this.CedulamaskedTextBox = new System.Windows.Forms.MaskedTextBox();
@@ -49,10 +48,11 @@
             this.Agregarbutton = new System.Windows.Forms.Button();
             this.TipocomboBox = new System.Windows.Forms.ComboBox();
             this.TelefonomaskedTextBox = new System.Windows.Forms.MaskedTextBox();
-            this.Nuevobutton = new System.Windows.Forms.Button();
-            this.Guardarbutton = new System.Windows.Forms.Button();
-            this.Eliminarbutton = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.Eliminarbutton = new System.Windows.Forms.Button();
+            this.Guardarbutton = new System.Windows.Forms.Button();
+            this.Nuevobutton = new System.Windows.Forms.Button();
+            this.Buscarbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.IDnumericUpDown)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TelefonosdataGridView)).BeginInit();
@@ -129,16 +129,6 @@
             this.IDnumericUpDown.Size = new System.Drawing.Size(87, 22);
             this.IDnumericUpDown.TabIndex = 7;
             // 
-            // Buscarbutton
-            // 
-            this.Buscarbutton.Location = new System.Drawing.Point(216, 17);
-            this.Buscarbutton.Name = "Buscarbutton";
-            this.Buscarbutton.Size = new System.Drawing.Size(75, 77);
-            this.Buscarbutton.TabIndex = 8;
-            this.Buscarbutton.Text = "Buscar";
-            this.Buscarbutton.UseVisualStyleBackColor = true;
-            this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
-            // 
             // NombretextBox
             // 
             this.NombretextBox.Location = new System.Drawing.Point(106, 122);
@@ -188,7 +178,7 @@
             // 
             // NuevoTipobutton
             // 
-            this.NuevoTipobutton.Location = new System.Drawing.Point(388, 36);
+            this.NuevoTipobutton.Location = new System.Drawing.Point(394, 37);
             this.NuevoTipobutton.Name = "NuevoTipobutton";
             this.NuevoTipobutton.Size = new System.Drawing.Size(55, 23);
             this.NuevoTipobutton.TabIndex = 12;
@@ -217,22 +207,25 @@
             // 
             // Agregarbutton
             // 
-            this.Agregarbutton.Location = new System.Drawing.Point(464, 36);
+            this.Agregarbutton.Image = global::ResgistroPersonaDetalle.Properties.Resources.mas;
+            this.Agregarbutton.Location = new System.Drawing.Point(455, 21);
             this.Agregarbutton.Name = "Agregarbutton";
-            this.Agregarbutton.Size = new System.Drawing.Size(75, 23);
+            this.Agregarbutton.Size = new System.Drawing.Size(75, 46);
             this.Agregarbutton.TabIndex = 9;
-            this.Agregarbutton.Text = "Add";
             this.Agregarbutton.UseVisualStyleBackColor = true;
             this.Agregarbutton.Click += new System.EventHandler(this.Agregarbutton_Click);
             // 
             // TipocomboBox
             // 
             this.TipocomboBox.FormattingEnabled = true;
+            this.TipocomboBox.Items.AddRange(new object[] {
+            "Tipo"});
             this.TipocomboBox.Location = new System.Drawing.Point(260, 36);
             this.TipocomboBox.Name = "TipocomboBox";
             this.TipocomboBox.Size = new System.Drawing.Size(121, 24);
             this.TipocomboBox.TabIndex = 8;
             this.TipocomboBox.SelectedIndexChanged += new System.EventHandler(this.TipocomboBox_SelectedIndexChanged);
+            this.TipocomboBox.VisibleChanged += new System.EventHandler(this.TipocomboBox_VisibleChanged);
             // 
             // TelefonomaskedTextBox
             // 
@@ -242,39 +235,57 @@
             this.TelefonomaskedTextBox.Size = new System.Drawing.Size(115, 22);
             this.TelefonomaskedTextBox.TabIndex = 7;
             // 
-            // Nuevobutton
-            // 
-            this.Nuevobutton.Location = new System.Drawing.Point(50, 542);
-            this.Nuevobutton.Name = "Nuevobutton";
-            this.Nuevobutton.Size = new System.Drawing.Size(75, 60);
-            this.Nuevobutton.TabIndex = 14;
-            this.Nuevobutton.Text = "Nuevo";
-            this.Nuevobutton.UseVisualStyleBackColor = true;
-            this.Nuevobutton.Click += new System.EventHandler(this.Nuevobutton_Click);
-            // 
-            // Guardarbutton
-            // 
-            this.Guardarbutton.Location = new System.Drawing.Point(233, 542);
-            this.Guardarbutton.Name = "Guardarbutton";
-            this.Guardarbutton.Size = new System.Drawing.Size(75, 60);
-            this.Guardarbutton.TabIndex = 15;
-            this.Guardarbutton.Text = "Guardar";
-            this.Guardarbutton.UseVisualStyleBackColor = true;
-            this.Guardarbutton.Click += new System.EventHandler(this.Guardarbutton_Click);
-            // 
-            // Eliminarbutton
-            // 
-            this.Eliminarbutton.Location = new System.Drawing.Point(395, 542);
-            this.Eliminarbutton.Name = "Eliminarbutton";
-            this.Eliminarbutton.Size = new System.Drawing.Size(75, 60);
-            this.Eliminarbutton.TabIndex = 16;
-            this.Eliminarbutton.Text = "Eliminar";
-            this.Eliminarbutton.UseVisualStyleBackColor = true;
-            this.Eliminarbutton.Click += new System.EventHandler(this.Eliminarbutton_Click);
-            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // Eliminarbutton
+            // 
+            this.Eliminarbutton.Image = global::ResgistroPersonaDetalle.Properties.Resources.delete;
+            this.Eliminarbutton.Location = new System.Drawing.Point(395, 524);
+            this.Eliminarbutton.Name = "Eliminarbutton";
+            this.Eliminarbutton.Size = new System.Drawing.Size(75, 78);
+            this.Eliminarbutton.TabIndex = 16;
+            this.Eliminarbutton.Text = "Eliminar";
+            this.Eliminarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.Eliminarbutton.UseVisualStyleBackColor = true;
+            this.Eliminarbutton.Click += new System.EventHandler(this.Eliminarbutton_Click);
+            // 
+            // Guardarbutton
+            // 
+            this.Guardarbutton.Image = global::ResgistroPersonaDetalle.Properties.Resources.save;
+            this.Guardarbutton.Location = new System.Drawing.Point(233, 524);
+            this.Guardarbutton.Name = "Guardarbutton";
+            this.Guardarbutton.Size = new System.Drawing.Size(75, 78);
+            this.Guardarbutton.TabIndex = 15;
+            this.Guardarbutton.Text = "Guardar";
+            this.Guardarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.Guardarbutton.UseVisualStyleBackColor = true;
+            this.Guardarbutton.Click += new System.EventHandler(this.Guardarbutton_Click);
+            // 
+            // Nuevobutton
+            // 
+            this.Nuevobutton.Image = global::ResgistroPersonaDetalle.Properties.Resources.document_new;
+            this.Nuevobutton.Location = new System.Drawing.Point(50, 524);
+            this.Nuevobutton.Name = "Nuevobutton";
+            this.Nuevobutton.Size = new System.Drawing.Size(75, 78);
+            this.Nuevobutton.TabIndex = 14;
+            this.Nuevobutton.Text = "Nuevo";
+            this.Nuevobutton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.Nuevobutton.UseVisualStyleBackColor = true;
+            this.Nuevobutton.Click += new System.EventHandler(this.Nuevobutton_Click);
+            // 
+            // Buscarbutton
+            // 
+            this.Buscarbutton.Image = global::ResgistroPersonaDetalle.Properties.Resources.search;
+            this.Buscarbutton.Location = new System.Drawing.Point(216, 17);
+            this.Buscarbutton.Name = "Buscarbutton";
+            this.Buscarbutton.Size = new System.Drawing.Size(75, 77);
+            this.Buscarbutton.TabIndex = 8;
+            this.Buscarbutton.Text = "Buscar";
+            this.Buscarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.Buscarbutton.UseVisualStyleBackColor = true;
+            this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
             // 
             // RPersonaDetalle
             // 

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ResgistroPersonaDetalle.Entidades;
+
 using ResgistroPersonaDetalle.DAL;
 using ResgistroPersonaDetalle.BLL;
 
@@ -41,6 +41,7 @@ namespace ResgistroPersonaDetalle.UI
             persona.PersonaID = Convert.ToInt32(IDnumericUpDown.Value);
             persona.Nombre = NombretextBox.Text;
             persona.Cedula = CedulamaskedTextBox.Text;
+            persona.Direccion = DirecciontextBox.Text;
             persona.FechaNacmineto = FNacimientodateTimePicker.Value;
 
             persona.Telefonos = this.detalle;
@@ -100,7 +101,7 @@ namespace ResgistroPersonaDetalle.UI
         private void Agregarbutton_Click(object sender, EventArgs e)
         {
             if(TelefonosdataGridView.DataSource != null)
-            {
+            
                 this.detalle = (List<TelefonoDetalle>)TelefonosdataGridView.DataSource;
 
                 this.detalle.Add(
@@ -115,7 +116,7 @@ namespace ResgistroPersonaDetalle.UI
                 TelefonomaskedTextBox.Focus();
                 TelefonomaskedTextBox.Clear();
                 
-            }
+            
         }
 
         private void Removebutton_Click(object sender, EventArgs e)
@@ -168,13 +169,15 @@ namespace ResgistroPersonaDetalle.UI
         {
             errorProvider1.Clear();
             int id;
-            Persona persona = new Persona();
+
             int.TryParse(IDnumericUpDown.Text, out id);
 
-            if(PersonasBLL.Eliminar(id))
+            if (PersonasBLL.Eliminar(id))
+            {
                 MessageBox.Show("Eliminado");
+            }
             else
-            errorProvider1.SetError(IDnumericUpDown, "Persona no Exite");
+                errorProvider1.SetError(IDnumericUpDown, "Persona no Exite");
         }
 
         private void Buscarbutton_Click(object sender, EventArgs e)
@@ -188,8 +191,9 @@ namespace ResgistroPersonaDetalle.UI
 
             if(persona != null)
             {
-                MessageBox.Show("Persona Encotrada");
                 LlenaCampo(persona);
+                MessageBox.Show("Persona Encotrada");
+         
             }
             else
             {
@@ -201,16 +205,24 @@ namespace ResgistroPersonaDetalle.UI
         {
             TipoTelefonoNuevo tipo = new TipoTelefonoNuevo();
             tipo.ShowDialog();
+           
 
-
-
-
-
-                                        }
+            }
 
         private void TipocomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-         
+           
+        }
+
+        private void TipocomboBox_VisibleChanged(object sender, EventArgs e)
+        {
+            List<TipoDeTelefono> detalle = new List<TipoDeTelefono>();
+            switch (TipocomboBox.SelectedIndex)
+            {
+                case 1:
+                    detalle = TelefonoBll.GetList(p =>p.Tipo.Contains(TipocomboBox.Text));
+                    break;
+            }
         }
     }
 }
