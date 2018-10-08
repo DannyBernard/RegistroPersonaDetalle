@@ -218,8 +218,6 @@
             // TipocomboBox
             // 
             this.TipocomboBox.FormattingEnabled = true;
-            this.TipocomboBox.Items.AddRange(new object[] {
-            "Tipo"});
             this.TipocomboBox.Location = new System.Drawing.Point(260, 36);
             this.TipocomboBox.Name = "TipocomboBox";
             this.TipocomboBox.Size = new System.Drawing.Size(121, 24);

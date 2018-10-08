@@ -205,6 +205,7 @@ namespace ResgistroPersonaDetalle.UI
         {
             TipoTelefonoNuevo tipo = new TipoTelefonoNuevo();
             tipo.ShowDialog();
+            tipo.Close();
            
 
             }
@@ -216,13 +217,12 @@ namespace ResgistroPersonaDetalle.UI
 
         private void TipocomboBox_VisibleChanged(object sender, EventArgs e)
         {
-            List<TipoDeTelefono> detalle = new List<TipoDeTelefono>();
-            switch (TipocomboBox.SelectedIndex)
-            {
-                case 1:
-                    detalle = TelefonoBll.GetList(p =>p.Tipo.Contains(TipocomboBox.Text));
-                    break;
-            }
+            TipoDeTelefono tipoDeTelefono = new TipoDeTelefono();
+          TipocomboBox.DataSource= TelefonoBll.GetList(t =>true);
+
+        
+
+
         }
     }
 }

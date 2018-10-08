@@ -15,7 +15,7 @@ namespace ResgistroPersonaDetalle.BLL
 
         public static List<TipoDeTelefono> GetList(Expression<Func<TipoDeTelefono, bool>> expression)
         {
-            List<TelefonoDetalle> telefonoDetalles = new List<TelefonoDetalle>();
+            List<TipoDeTelefono> telefonoDetalles = new List<TipoDeTelefono>();
             Contexto contexto = new Contexto();
 
             try
