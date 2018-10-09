@@ -14,16 +14,24 @@ using ResgistroPersonaDetalle.BLL;
 
 namespace ResgistroPersonaDetalle.UI
 {
-    public partial class RPersonaDetalle : Form
+   public partial class RPersonaDetalle : Form
     {
         public List<TelefonoDetalle> detalle { get; set; }
         public RPersonaDetalle()
         {
             InitializeComponent();
             this.detalle = new List<TelefonoDetalle>();
+            LlenarComboBOx();
         }
-       private void Limpiar()
+      private void LlenarComboBOx()
         {
+            TipocomboBox.DataSource = TipoBLL.GetList(x => true);
+           // TipocomboBox.ValueMember = "Id";
+            TipocomboBox.ValueMember = "Tipo";
+        }
+        private void Limpiar()
+        {
+            errorProvider1.Clear();
             IDnumericUpDown.Value = 0;
             NombretextBox.Text = string.Empty;
             DirecciontextBox.Text = string.Empty;
@@ -31,7 +39,7 @@ namespace ResgistroPersonaDetalle.UI
             FNacimientodateTimePicker.Value = DateTime.Now;
 
             this.detalle = new List<TelefonoDetalle>();
-
+            CargarGrid();
 
         }
 
@@ -44,7 +52,7 @@ namespace ResgistroPersonaDetalle.UI
             persona.Direccion = DirecciontextBox.Text;
             persona.FechaNacmineto = FNacimientodateTimePicker.Value;
 
-            persona.Telefonos = this.detalle;
+            persona.telefonos = this.detalle;
 
             return persona;
         }
@@ -57,7 +65,7 @@ namespace ResgistroPersonaDetalle.UI
             DirecciontextBox.Text = persona.Direccion;
             FNacimientodateTimePicker.Value = persona.FechaNacmineto;
 
-            this.detalle = persona.Telefonos;
+           this.detalle = persona.telefonos;
             CargarGrid();
         }
         private void CargarGrid()
@@ -100,6 +108,8 @@ namespace ResgistroPersonaDetalle.UI
 
         private void Agregarbutton_Click(object sender, EventArgs e)
         {
+            RPersonaDetalle rPersona = new RPersonaDetalle();
+
             if(TelefonosdataGridView.DataSource != null)
             
                 this.detalle = (List<TelefonoDetalle>)TelefonosdataGridView.DataSource;
@@ -112,7 +122,7 @@ namespace ResgistroPersonaDetalle.UI
                         TipoTelefono : TipocomboBox.Text
                         )
                         );
-                CargarGrid();
+                  CargarGrid();
                 TelefonomaskedTextBox.Focus();
                 TelefonomaskedTextBox.Clear();
                 
@@ -191,14 +201,16 @@ namespace ResgistroPersonaDetalle.UI
 
             if(persona != null)
             {
-                LlenaCampo(persona);
+                errorProvider1.Clear();
+                this.LlenaCampo(persona);
                 MessageBox.Show("Persona Encotrada");
-         
+             
             }
             else
             {
                 MessageBox.Show("Persona no Encotrada");
             }
+            
         }
 
         private void NuevoTipobutton_Click(object sender, EventArgs e)
@@ -210,19 +222,8 @@ namespace ResgistroPersonaDetalle.UI
 
             }
 
-        private void TipocomboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-        }
 
-        private void TipocomboBox_VisibleChanged(object sender, EventArgs e)
-        {
-            TipoDeTelefono tipoDeTelefono = new TipoDeTelefono();
-          TipocomboBox.DataSource= TelefonoBll.GetList(t =>true);
 
         
-
-
-        }
     }
 }

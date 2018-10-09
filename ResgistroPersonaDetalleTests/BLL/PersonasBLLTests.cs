@@ -24,7 +24,7 @@ namespace ResgistroPersonaDetalle.BLL.Tests
             personas.FechaNacmineto = DateTime.Now;
             paso = PersonasBLL.Guardar(personas);
           
-            personas.Telefonos = new List<TelefonoDetalle>();
+           // personas.Telefonos = new List<TelefonoDetalle>();
             Assert.Fail();
         }
     }

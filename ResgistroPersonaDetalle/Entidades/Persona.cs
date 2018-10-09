@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ResgistroPersonaDetalle.Entidades
 {
-   public class Persona
+    public  class Persona
     {
         [Key]
         public int PersonaID { get; set; }
@@ -16,7 +16,7 @@ namespace ResgistroPersonaDetalle.Entidades
         public string Direccion { get; set;}
         public DateTime FechaNacmineto { get; set; }
 
-        public virtual List<TelefonoDetalle> Telefonos { get; set; }
+      public  virtual List<TelefonoDetalle> telefonos { get; set; }
 
         public Persona()
         {
@@ -26,7 +26,7 @@ namespace ResgistroPersonaDetalle.Entidades
             Direccion = string.Empty;
             FechaNacmineto = DateTime.Now;
 
-            Telefonos = new List<TelefonoDetalle>();
+            telefonos = new List<TelefonoDetalle>();
         }
     }
 }

@@ -222,8 +222,7 @@
             this.TipocomboBox.Name = "TipocomboBox";
             this.TipocomboBox.Size = new System.Drawing.Size(121, 24);
             this.TipocomboBox.TabIndex = 8;
-            this.TipocomboBox.SelectedIndexChanged += new System.EventHandler(this.TipocomboBox_SelectedIndexChanged);
-            this.TipocomboBox.VisibleChanged += new System.EventHandler(this.TipocomboBox_VisibleChanged);
+    
             // 
             // TelefonomaskedTextBox
             // 

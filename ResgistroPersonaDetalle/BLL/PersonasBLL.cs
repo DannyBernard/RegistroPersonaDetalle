@@ -42,9 +42,9 @@ namespace ResgistroPersonaDetalle.BLL
             try
             {
                persona = contexto.Persona.Find(persona.PersonaID);
-                foreach (var item in persona.Telefonos)
+                foreach (var item in persona.telefonos)
                 {
-                    if (!persona.Telefonos.Exists(d => d.Id == item.Id))
+                    if (!persona.telefonos.Exists(d => d.Id == item.Id))
                         contexto.Entry(item).State = EntityState.Deleted;
                 }
                 contexto.Entry(persona).State = EntityState.Modified;
@@ -106,7 +106,7 @@ namespace ResgistroPersonaDetalle.BLL
             return persona;
         }
     
-        public static List<Persona> GetList(Expression<Func<Persona,bool>>persona)
+        public static List<Persona> GetList(Expression<Func<Persona,bool>> persona)
         {
             List<Persona> Lista = new List<Persona>();
             Contexto contexto = new Contexto();

@@ -53,7 +53,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\PersonasBLL.cs" />
-    <Compile Include="BLL\TelefonoBll.cs" />
     <Compile Include="BLL\TipoBLL.cs" />
     <Compile Include="DAL\Contexto.cs" />
     <Compile Include="Entidades\Persona.cs" />
